@@ -13,15 +13,23 @@ def main():
 	for word in words:
 		print('%s: %s' % (
 			word,
-			', '.join(patterns[''.join(sorted(word.lower()))]) if ''.join(sorted(word.lower())) in patterns else ''
+			', '.join(patterns[''.join(sorted(word.lower()))])
+			if ''.join(sorted(word.lower())) in patterns else ''
 		))
 	end_time = timer()
 
-	print()
-	print("Solved %s anagram(s)" % (Fore.GREEN + str(len(words)) + Fore.WHITE))
-	print("In %s second(s)." % (Fore.GREEN + str(end_time - start_time) + Fore.WHITE))
-	print("Which is approximately %s anagram(s) per second" % (Fore.GREEN + str(len(words) / (end_time - start_time)) + Fore.WHITE))
-	print("Or %s second(s) to solve 1 anagram." % (Fore.GREEN + str((end_time - start_time) / len(words)) + Fore.WHITE))
+	print("\nSolved %s anagram(s)" % (
+		Fore.GREEN + str(len(words)) + Fore.WHITE
+	))
+	print("In %s second(s)." % (
+		Fore.GREEN + str(end_time - start_time) + Fore.WHITE
+	))
+	print("Which is approximately %s anagram(s) per second" % (
+		Fore.GREEN + str(len(words) / (end_time - start_time)) + Fore.WHITE
+	))
+	print("Or %s second(s) to solve 1 anagram." % (
+		Fore.GREEN + str((end_time - start_time) / len(words)) + Fore.WHITE
+	))
 
 
 if __name__ == '__main__':
