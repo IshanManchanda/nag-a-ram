@@ -5,18 +5,21 @@ from patterns import patterns
 
 
 def main():
-	init()
 	with open('input.txt', 'r') as input_file:
 		words = input_file.read().strip().split('\n')
-
+	out = []
 	start_time = timer()
+
 	for word in words:
-		print('%s: %s' % (
+		key = ''.join(sorted(word.lower()))
+		out.append('%s: %s' % (
 			word,
-			', '.join(patterns[''.join(sorted(word.lower()))])
-			if ''.join(sorted(word.lower())) in patterns else ''
+			', '.join(patterns[key]) if key in patterns else ''
 		))
+
 	end_time = timer()
+	init()
+	print('\n'.join(out))
 
 	print("\nSolved %s anagram(s)" % (
 		Fore.GREEN + str(len(words)) + Fore.WHITE
