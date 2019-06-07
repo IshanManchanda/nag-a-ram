@@ -1,4 +1,4 @@
-# Anagrm
+# nag-a-ram
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Rippr/)
@@ -6,24 +6,25 @@
 
 Optimized anagram solver written in Python.
 
-## How to use Anagrm
+## How to use nag-a-ram
 
 1. Populate dictionary.txt with all valid words. Each line should contain a single word.
 2. Run generate_patterns.py. This will probably take a while.
 3. Add all the words to be unscrambled in input.txt. Again, each line should contain a single word.
-4. Finally, run anagrm.py.
+4. Finally, run solve.py.
 
 
-## How does Anagrm work?
+## How does it work?
 
 A naive anagram solver would simply generate all permutations of the input string, and check if a permutation is valid.
-Using a conventional list to store the dictionary words would make it extremely inefficient.  
+Using a conventional list to store the dictionary words would make it extremely inefficient.
+An unosrted list would lead to O(n) lookups and a sorted one would lead to O(log n).  
 
 A simple optimization is to store the words as a Hash Table.
-This allows for O(1) lookups and greatly reduces the runtime.  
+This allows for O(1) lookups and reduces the runtime.  
 
 However, hashes for every single permutation would still have to be generated.
-Instead of hashing the input string directly, Anagrm lexicographically sorts the letters in the input string.
+Instead of hashing the input string directly, nag-a-ram lexicographically sorts the letters in the input string.
 Thus, all possible permutations of the string will resolve to a single value, which can be checked efficiently.  
 
 generate_patterns.py takes each word in the dictionary, lexicographically sorts its letters,
@@ -42,6 +43,6 @@ k: Average word length
   - Runtime Complexity: O(n * m * k!)
 - Hash Table solution
   - Runtime Complexity: O(n * k!)
-- Anagrm
+- nag-a-ram
   - Precomputation Complexity: O(m * k!)  
   - Runtime Complexity: O(n * klogk)
