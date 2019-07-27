@@ -1,5 +1,5 @@
+import json
 from collections import defaultdict
-from json import dumps
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
 
 	with open('patterns.py', 'w') as patterns_file:
 		patterns_file.write('patterns = ')
-		patterns_file.write(dumps(patterns, indent=4))
+		patterns_file.write(json.dumps(patterns, indent=4))
 
 
 if __name__ == '__main__':
