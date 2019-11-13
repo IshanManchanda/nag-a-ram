@@ -1,5 +1,6 @@
-from colorama import init, Fore
 from timeit import default_timer as timer
+
+from colorama import Fore, init
 
 from patterns import patterns
 
