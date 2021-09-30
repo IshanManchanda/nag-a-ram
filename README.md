@@ -16,11 +16,11 @@ Optimized anagram solver written in Python.
 
 ## How does it work?
 
-A naive anagram solver would simply generate all permutations of the input string, and check if a permutation is valid.
+A naive anagram solver would simply generate all permutations of the input string and check if each permutation is valid.
 Using a conventional list to store the dictionary words would make it extremely inefficient.
-An unosrted list would lead to O(n) lookups and a sorted one would lead to O(log n).  
+An unsorted list would lead to O(m)-runtime lookups and a sorted one would lead to O(log m).  
 
-A simple optimization is to store the words as a Hash Table.
+A simple optimization is to store the words in a Hash Table.
 This allows for O(1) lookups and reduces the runtime.  
 
 However, hashes for every single permutation would still have to be generated.
@@ -33,16 +33,18 @@ This precomputed data is stored as a Python dictionary\[str, list\[str\]\] in pa
 The same computation is done for each input string in input.txt and all valid results are printed.
 
 
-### Complexity
+### Time Complexity Comparison
 
 n: Number of input words  
 m: Number of dictionary words  
 k: Average word length  
 
 - Naive solution
+  - Precomputation Complexity (Trivial, loading the list): O(m)
   - Runtime Complexity: O(n * m * k!)
 - Hash Table solution
+  - Precomputation Complexity: O(m)
   - Runtime Complexity: O(n * k!)
 - nag-a-ram
-  - Precomputation Complexity: O(m * k!)  
+  - Precomputation Complexity: O(m * k log k)  
   - Runtime Complexity: O(n * klogk)
